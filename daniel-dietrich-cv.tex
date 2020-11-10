@@ -1,0 +1,306 @@
+%% Copyright 2006-1008 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\documentclass[10pt,a4paper,colorlinks=true]{moderncv}
+
+%----------------------------------------------------------------------------------
+%  moderncv theme
+%----------------------------------------------------------------------------------
+
+% optional arguments are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+%\moderncvtheme[blue, roman]{casual}
+\moderncvtheme[blue]{classic}
+
+% Character encoding
+\usepackage[utf8]{inputenc} % replace by the encoding you are using
+\usepackage[english]{babel}
+
+\usepackage{fontawesome}
+\usepackage{changepage} % for the adjustwidth environment
+
+% Add a timeline on the left, API see http://ctan.math.utah.edu/ctan/tex-archive/macros/latex/contrib/moderntimeline/moderntimeline.pdf
+\usepackage[firstyear=1998,lastyear=2020]{moderntimeline}
+\tlenablemonths
+\setlength{\hintscolumnwidth}{4.1cm} % Width of the timeline on your left
+
+% Globally modify itemsep on itemize environment
+\usepackage{enumitem}
+\setitemize{itemsep=4pt}
+
+% Adjust the page margins
+%\addtolength{\voffset}{1cm}
+\usepackage[scale=0.8]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                      % if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+\AtBeginDocument{\recomputelengths}                      % required when changes are made to page layout lengths
+
+%\nopagenumbers{}                                        % uncomment to suppress automatic page numbering for CVs longer than one page
+
+%----------------------------------------------------------------------------------
+%  Fork me on GitHub
+%----------------------------------------------------------------------------------
+
+\usepackage{tikz}
+\usepackage{ifthen}
+\usepackage{xcolor}
+\usetikzlibrary{shadows.blur}
+
+\definecolor{forkmebg}{HTML}{3873b3}
+\definecolor{forkmefg}{HTML}{eeeeee}
+
+% rotate and shift are hardcoded here because of the href workaround, see also https://gist.github.com/dokenzy/fe8967c8a5921191a261
+\newcommand{\forkme}{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[rotate=45, shift={(0, -3.2cm)}] at (current page.north west) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \node[fill=forkmebg, text centered, minimum width=50em, minimum height=3.0em, blur shadow, shadow yshift=0pt, shadow xshift=0pt, shadow blur radius=.4em, shadow opacity=50](fmogh) at (0pt, 0pt) {}; % workaround: text/link see below
+        \draw[forkmefg!60, dashed, line width=.08em, dash pattern=on .5em off 1.5\pgflinewidth] (-25em,1.2em) rectangle (25em,-1.2em);
+      \end{tikzpicture}
+    };
+    % workaround: the link needs to be defined using a \rotatebox{deg} because \node[rotate=deg]{\href} isn't rendered correctly
+    \node[shift={(0.8em, 1.7em)}, text centered, minimum width=50em, minimum height=3.0em, text=forkmefg](fmogh) at (0pt, 0pt) { \fontfamily{phv}\selectfont\bfseries \href{https://github.com/danieldietrich/cv}{\rotatebox{45}{\color{white}{Fork me on GitHub}}} };
+  \end{tikzpicture}
+}
+
+%----------------------------------------------------------------------------------
+%  Personal data
+%----------------------------------------------------------------------------------
+
+\firstname{Daniel}
+\familyname{Dietrich}
+\title{Curriculum Vitae}                    % optional, remove the line if not wanted
+\address{\faMapMarker~ Kiel, Germany}       % optional, remove the line if not wanted
+\mobile{+49 151 645 00 968}                 % optional, remove the line if not wanted
+%\phone{}                                   % optional, remove the line if not wanted
+%\fax{fax (optional)}                       % optional, remove the line if not wanted
+\email{mail@danieldietrich.dev}             % optional, remove the line if not wanted
+%\extrainfo{Nationality: German}            % optional, remove the line if not wanted
+\photo[64pt]{portrait.jpg}                  % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
+%\quote{Some quote (optional)}              % optional, remove the line if not wanted
+
+%----------------------------------------------------------------------------------
+%  Content
+%----------------------------------------------------------------------------------
+
+\begin{document}
+
+\forkme
+
+\maketitle
+
+% Increase cventry vertical space
+\setlength{\parskip}{4pt}
+
+\begin{flushright}Last updated: \today \end{flushright}
+[ \emph{Read the résumé version} at \href{https://resume.danieldietrich.dev}{https://resume.danieldietrich.dev} ]
+
+\section{\textsc{Summary}}
+\vspace{1em}
+\begin{adjustwidth}{1cm}{1cm}
+Daniel is a highly motivated Senior Software Engineer, Open Source Community Leader and Author with 18+ years of experience.
+He is a skilled lead developer, software architect and project manager with distinct analytical skills.
+His portfolio ranges from the design of web and user interfaces to middleware, infrastructure and databases.
+\\[2pt]
+Beside his regular job, Daniel is an active open source contributor and author.
+Daniel is intrinsically motivated to learn new languages, frameworks and technologies.
+He is sharing his knowledge by writing articles and books and collaborates with developers around the world on the GitHub platform.
+His most visible open source project is Vavr, a library for object-functional programming in Java.
+\\[2pt]
+Daniel is a polyglot programmer and can switch between different paradigms, like functional, object-oriented and declarative (SQL, NoSQL) programming.
+He uses the language that fits best.
+During the last years, Daniel focused mainly on the web platform for frontend development, using React and TypeScript,
+and he developed with Node.js and Java on the backend.
+\\[2pt]
+Out of curiosity, he studied the React source code by Facebook and developed his own React clone, including the modern Hooks API (only 2kb minzipped).
+In another personal side-project, he explored the limits of TypeScript's type system by implementing an
+internal DSL for CouchDB's Mango Query Language (in only 35 lines of code).
+\\[2pt]
+Daniel has a creative vein and a fondness for web design.
+Currently, he uses tools like Adobe Creative Suite, Figma and TailwindCSS to design web pages.
+\\[2pt]
+Daniel loves to spend quality time with his wife and their five children.
+When he turns the computer off, he rides one of his bikes or relaxes after going to the gym.
+\end{adjustwidth}
+
+\vspace{1em}
+\section{\textsc{Professional Experience}}
+
+\tlcventry{2014/3}{0}{Open Source Project Leader}{\href{https://github.com/vavr-io/vavr}{Vavr} (formerly Javaslang)}{}{}{
+  \vspace{-5pt}
+  \begin{itemize}\setlength\itemsep{4pt}
+    \item Reified the vision of being \#1 project for functional programming in Java.
+          Built a vibrant international community and a network of open source developers and sponsors.
+    \item Designed an API for Haskell- and Scala-like algebraic data structures in Java (Functors, Applicatives, Monads).
+          Implemented a complete set of persistent collections. Simplified concurrent programming.
+    \item Wrote online documentation and components for code generation and automated testing
+          on top cloud infrastructure.
+  \end{itemize}
+  \textbf{Keywords}: \textit{Vavr, Functional Programming, Java, Scala, GitHub, Open Source}
+}
+
+\tlcventry{2008/11}{2020/12}{Senior Software Engineer}{\href{https://www.hcob-bank.de/}{Hamburg Commercial Bank}}{Kiel/Hamburg}{}{
+  \vspace{-5pt}
+  (\textit{most relevant projects only})
+  \begin{itemize}\setlength\itemsep{4pt}
+    \item \textit{Microservice Integration Architecture for Capital Markets IT (2019-2020)} \\[2pt]
+          \textbf{Role}: Lead Developer \\[2pt]
+          Designed and implemented a Capital Markets data access layer based on Open API/spec first, incl. security.
+          Implemented an OAuth2 server and adapted it to the in-house Corporate LDAP.
+          Team collaboration creating services with Spring Boot including API gateway, service discovery and load balancing.
+          Wrote deployment and release automation scripts for an in-house infrastructure.
+          Wrote developer guidelines and shared the knowledge with my team.
+          Adapted the services to existing systems in a hetorogenous landscape, like OneSumX and Cloudera. \\[2pt]
+          \textbf{Keywords}: \textit{Oracle, SQL, Spring Boot, Java, Python, Shell, OneSumX, Cloudera}
+    \item \textit{Digital transformation of the Know Your Customer onboarding process (2018-2019)} \\[2pt]
+          \textbf{Role}: Lead Developer \\[2pt]
+          Analyzed and designed the KYC onboarding process.
+          Implemented an event-driven frontend in React and TypeScript that reflected updates of the onboarding process in real-time.
+          Implemented a backend in Node.js with a CouchDB that concurrently collected private company data from 3rd party services like Bureau van Dijk/Orbis and the Germany Commercial Register.
+          Trained junior developers to maintain and enhance the application. \\[2pt]
+          \textbf{Keywords}: \textit{CouchDB, NoSQL, React, TypeScript, Node.js, JavaScript}
+    \item \textit{Blockchain based trading platform for bonded loans (2016-2018)} \\[2pt]
+          \textbf{Role}: Software Engineer \\[2pt]
+          Worked with an interdisciplinary team of German banks on the architecture and implementation of a trading platform for bonded loans, called \href{https://www.der-bank-blog.de/schuldscheindarlehen-blockchain/technologie/37670219/}{finledger}.
+          Solved backend data synchronization challenges in a distributed, eventually persistent architecture with private data portions per bank.
+          Created a frontend with React, TypeScript and Ant Design.
+          Implemented the backend with Spring Boot and the Ethereum blockchain. \\[2pt]
+          \textbf{Keywords}: \textit{Ethereum, React, TypeScript, Node.js, Spring Boot}
+    \item \textit{Migration of a pricing framework from C\# to Java (2015-2016)} \\[2pt]
+          \textbf{Role}: Project Manager \\[2pt]
+          Set up the project and designed a functional calculation core in plain Java.
+          Trained the project team of financial engineers in functional programming in Java.
+          Reimplemented with the team all pricers and adapted them to the Calypso trading system.
+          Met the requirement of producing exactly same results while pricing big portions of the bank portfolio in a given time frame on a daily basis. \\[2pt]
+          \textbf{Keywords}: \textit{C\#, .NET, Java, Calypso}
+    \item \textit{Creation of a Calypso risk instance (2012-2015)} \\[2pt]
+          \textbf{Role}: Software Engineer \\[2pt]
+          Collaborated with a team of \char`~20 developers to created a risk instance of the Calypso trading system.
+          My part was the design and implementation of an event bus for sharing end of day and neartime data with external systems. \\[2pt]
+          \textbf{Keywords}: \textit{Calypso, Java, Enterprise Integration, FpML}
+    \item \textit{Workflow automation of Credit Risk- \& Loan and Collateral Management (2011-2012)} \\[2pt]
+          \textbf{Role}: Project Manager \\[2pt]
+          Digitally transformed the workflow between two business units with IBM WebSphere Process Server on the backend
+          and SAP WebDynpro for Java on the frontend. \\[2pt]
+          \textbf{Keywords}: \textit{IBM WebSphere, SAP WebDynpro, Java}
+  \end{itemize}
+}
+
+\tlcventry{2008/1}{2008/10}{Software Engineering Consultant}{\href{http://www.gentleware.com}{Gentleware AG}}{Hamburg}{}{
+  \vspace{-5pt}
+  \begin{itemize}\setlength\itemsep{4pt}
+    \item HSH Nordbank AG: \textit{Middleware for booking final taxes (2008)} \\[2pt]
+          \textbf{Role}: Software Engineer \\[2pt]
+          Designed and implemented an enterprise middleware based on distributed transactional queues
+          for passing payments and final taxes to multiple (external) systems. \\[2pt]
+          \textbf{Keywords}: Weblogic Server, IBM MQ, Java EE
+  \end{itemize}
+}
+
+\tlcventry{2002/8}{2007/12}{Software Developer}{\href{https://www.bminformatik.de/}{b+m Informatik AG}}{Kiel/Melsdorf}{}{
+  \vspace{-5pt}
+  \begin{itemize}\setlength\itemsep{4pt}
+    \item HSH Nordbank AG: \textit{Web application for compliance (2007)} \\[2pt]
+          \textbf{Role}: Software Engineer \\[2pt]
+          Created a Java client/server application to support compliance. \\[2pt]
+          \textbf{Keywords}: Weblogic Server, Java EE, JSF, Struts, Tiles
+    \item UBS Germany: \textit{Reimplementation of the asset management system (2006)} \\[2pt]
+          \textbf{Role}: Business Analyst \\[2pt]
+          Consultancy, requirement analysis and reimplementation of the asset management system.
+          Integration of business logic distributed over a Java application and Oracle PL/SQL. \\[2pt]
+          \textbf{Keywords}: Business Process Optimization, Model Driven Software Development
+    \item \textit{Creating a loan calculator (2006)} \\[2pt]
+          \textbf{Role}: Software Developer \\[2pt]
+          Created an amortization plan calculator in Java for different loan types.
+          b+m is still selling it as a product. \\[2pt]
+          \textbf{Keywords}: Loan Calculator, Java
+    \item \textit{In-house development of financial products (2004-2006)} \\[2pt]
+          \textbf{Role}: Software Developer \\[2pt]
+          Developed products as part of a big team for the financial sector based on model driven software development and code generation.
+          WebSphere and PostgreSQL on the backend, web browser on the frontend. \\[2pt]
+          \textbf{Keywords}: MDSD, UML, WebSphere, Java, PostgreSQL
+    \item \textit{Eclipse IDE plugin/language extension (2004)} \\[2pt]
+          \textbf{Role}: Software Developer \\[2pt]
+          Developed an Eclipse plugin for code generator languages that provided syntax highlighting, code formatting and code completion. \\[2pt]
+          \textbf{Keywords}: Eclipse IDE, Plugin Development
+  \end{itemize}
+}
+
+\tlcventry{2001/2}{2001/4}{Software Developer}{\href{https://www.mobilcom-debitel.de}{Mobilcom AG}}{Kiel}{}{
+  \vspace{-5pt}
+  \begin{itemize}\setlength\itemsep{4pt}
+    \item Worked on the online portal, implemented data structures for hierarchically displaying information. \\[2pt]
+          \textbf{Keywords}: JavaScript, Perl, LAMP stack (Linux, Apache, MySQL, PHP)
+  \end{itemize}
+}
+
+\tlcventry{1998/5}{2002/9}{Student Assistant}{\href{https://www.uni-kiel.de/medinfo/institut/}{Institute of Medical Informatics and Statistics}}{Kiel}{}{
+  \vspace{-5pt}
+  \begin{itemize}\setlength\itemsep{4pt}
+    \item Responsible for the computer lab.
+          Gave introductory courses about biometrics for medical students.
+    \item Used statistics software SPSS and R.
+    \item Built a multi-user application based on MS Access.
+  \end{itemize}
+  \textbf{Keywords}: Statistics, SPSS, R, Access Database
+}
+
+\pagebreak
+
+\section{\textsc{Technical Skills}}
+
+\cvcomputer{Programming languages}{\begin{flushleft}TypeScript, JavaScript, CSS, HTML, Java, Scala, SQL, NoSQL, Bash, Python, PHP, Haskell\end{flushleft}}
+           {Others}{\begin{flushleft}Git, Maven, Gradle, sbt, npm, yarn, Ethereum, GitHub Actions, Docker, Travis CI, Jenkins, Figma, Adobe Photoshop\end{flushleft}}
+\cvcomputer{Development methodologies}{\begin{flushleft}Onion Architecture, Clean Code, GoF Design Patterns, SOLID, Agile Development, SCRUM, Domain-Driven Design (DDD), Test-Driven Development (TDD)\end{flushleft}}
+           {Interest Areas}{\begin{flushleft}User Experience, Design, Functional Programming, Distributed Programming, Artificial Intelligence, Deep Learning, Blockchain, Kubernetes, DevOps\end{flushleft}}
+
+% \cventry[spacing]{years}{degree/job title}{institution/employer}{localization}{optional: grade/...}{optional: comment/job description}
+
+\section{\textsc{Articles and Books}}
+\cventry{2018}{Article \href{https://jax.de/blog/core-java-jvm-languages/das-beste-aus-beiden-welten/}{"Das Beste aus beiden Welten - Objektfunktionale Programmierung mit Vavr"}}{\href{https://jaxenter.de/ausgaben/java-magazin-3-18}{Java magazin, 20th anniversary edition}}{}{Author of the month}{}
+\cventry{2018}{Article \href{https://kiosk.entwickler.de/entwickler-magazin/entwickler-magazin-spezial-vol-18/web3j-blockchain-und-klimawandel/}{"Web3j, Blockchain und Klimawandel"}}{\href{https://kiosk.entwickler.de/entwickler-magazin/entwickler-magazin-spezial-vol-18/}{Entwickler Spezial Vol. 18}}{}{}{}
+\cventry{2016}{Book reviewer \href{https://www.amazon.com/Reactive-Programming-Scala-Akka/dp/1783984341}{"Reactive Programming with Scala and Akka"}}{Packt Publishing}{}{}{}
+\cventry{2013}{Book \href{https://www.amazon.com/Instant-Framework-Starter-Daniel-Dietrich/dp/1782162909}{"Instant Play Framework Starter"}}{Packt Publishing}{}{}{}
+
+\section{\textsc{Courses and certifications}}
+\cventry{2019}{\href{https://www.coursera.org/learn/neural-networks-deep-learning}{Neural Networks and Deep Learning}}{Coursera}{\href{https://coursera.org/share/f744684a1fa98c6377df85dd41e8ab6d}{Course certificate}}{}{}
+\cventry{2015}{\href{https://www.edx.org/course/introduction-to-functional-programming}{Functional Programming in Haskell}}{Delft University}{\href{https://verify.edx.org/cert/c98eb8e2ed314fb98a3d9b1490560021}{Course certificate}}{}{}
+\cventry{2014}{\href{https://www.mooc-list.com/course/principles-reactive-programming-coursera}{Principles of Reactive Programming}}{Coursera}{\href{https://www.coursera.org/api/legacyCertificates.v1/spark/statementOfAccomplishment/971465~707948/pdf}{Statement of Accomplishment}}{with distinction}{}
+\cventry{2012}{\href{https://www.coursera.org/learn/progfun1}{Functional Programming Principles in Scala}}{Coursera}{\href{https://www.coursera.org/api/legacyCertificates.v1/spark/statementOfAccomplishment/308~707948/pdf}{Statement of Accomplishment}}{with distinction}{}
+\cventry{2012}{Certified ScrumMaster}{Scrum Alliance, Inc.}{\href{http://bcert.me/sdvirlpn}{Course certificate}}{}{}
+
+\section{\textsc{Education}}
+\cventry{1997-2006}{Degree in Computer Science}{\href{https://www.uni-kiel.de/en/}{Christian-Albrecht University of Kiel}}{Kiel/Germany}{}{Final degree dissertation "Generator Debugging im modellgetriebenen Software-Entwicklungsprozess: Architektur und Implementierung"}
+
+\section{\textsc{Languages}}
+\cvlanguage{German}{Mother tongue}{}
+\cvlanguage{English}{Fluent}{}
+
+%\section{Driving license}
+%\cvline{}{B license.}
+
+%\section{Interests}
+%\cvline{hobby 1}{\small Description}
+%\cvline{hobby 2}{\small Description}
+%\cvline{hobby 3}{\small Description}
+
+\renewcommand{\listitemsymbol}{-} % change the symbol for lists
+
+%\section{Extra 1}
+%\cvlistitem{Item 1}
+%\cvlistitem{Item 2}
+%\cvlistitem[+]{Item 3}            % optional other symbol
+
+%\section{Extra 2}
+%\cvlistdoubleitem[\Neutral]{Item 1}{Item 4}
+%\cvlistdoubleitem[\Neutral]{Item 2}{Item 5}
+%\cvlistdoubleitem[\Neutral]{Item 3}{}
+
+% Publications from a BibTeX file
+%\nocite{*}
+%\bibliographystyle{plain}
+%\bibliography{publications}       % 'publications' is the name of a BibTeX file
+
+\end{document}
