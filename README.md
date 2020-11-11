@@ -8,7 +8,7 @@ Download the .pdf version [here](https://cv.danieldietrich.dev/daniel-dietrich-c
 
 The CV is automatically deployed to [gh-pages](https://pages.github.com) by a [GitHub Action](.github/workflows/deploy.yml) when pushing to the `main` branch.
 
-To manually build the pdf on a local machine, an installation of [Texlive](https://www.tug.org/texlive/) is required.
+To manually build the .pdf on a local machine, an installation of [Texlive](https://www.tug.org/texlive/) is required.
 
 ```sh
 pdflatex daniel-dietrich-cv.tex
